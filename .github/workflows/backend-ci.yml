@@ -44,9 +44,6 @@ jobs:
       - name: Run backend tests
         run: npm test
 
-      - name: Deploy to Render (only if tests pass)
-        if: github.ref == 'refs/heads/main'
-        uses: render-examples/deploy-action@v1
-        with:
-          serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-          apiKey: ${{ secrets.RENDER_API_KEY }}
+      - name: Deploy to Render
+        run: |
+          curl "$RENDER_DEPLOY_HOOK_URL"
