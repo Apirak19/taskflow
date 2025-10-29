@@ -14,9 +14,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          PGUSER: postgres
-          PGPASSWORD: Ou123101
-          PGDATABASE: taskflow_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: Ou123101
+          POSTGRES_DB: taskflow_test
         ports:
           - 5432:5432
         options: >-
