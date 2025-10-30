@@ -7,7 +7,7 @@ const migrate = async () => {
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL, 
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
@@ -19,7 +19,7 @@ const migrate = async () => {
         description TEXT,
         status VARCHAR(50) DEFAULT 'pending',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        user_id INTERGER REFERENCES users(id)
+        user_id INTEGER NOT NULL REFERENCES users(id)
       );
     `);
 
