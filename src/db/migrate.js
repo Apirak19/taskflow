@@ -18,7 +18,7 @@ const migrate = async () => {
         title VARCHAR(255) NOT NULL,
         description TEXT,
         status VARCHAR(50) DEFAULT 'pending',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         user_id INTERGER REFERENCES users(id)
       );
     `);
